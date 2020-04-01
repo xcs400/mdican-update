@@ -2,15 +2,15 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
-// vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
-const port = process.argv[2] || 9000;
+// vous pouvez passer le paramÃ¨tre en ligne de commande. ex. node static_server.js 3000
+const port = process.argv[2] || 80;
 http.createServer(function (req, res) {
   console.log(`${req.method} ${req.url}`);
-  // découpe l'URL
+  // dÃ©coupe l'URL
   const parsedUrl = url.parse(req.url);
   // Extrait le chemin de l'URL
   let pathname = `.${parsedUrl.pathname}`;
-  // Associe le type MIME par rapport au suffixe du fichier demandé
+  // Associe le type MIME par rapport au suffixe du fichier demandÃ©
   const mimeType = {
     '.ico': 'image/x-icon',
     '.html': 'text/html',
@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
       res.end(`File ${pathname} not found!`);
       return;
     }
-    // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
+    // s'il s'agit d'un rÃ©pertoire, on tente d'y trouver un fichier index.html
     if (fs.statSync(pathname).isDirectory()) {
       pathname += '/index.html';
     }
@@ -44,13 +44,13 @@ http.createServer(function (req, res) {
         res.statusCode = 500;
         res.end(`Error getting the file: ${err}.`);
       } else {
-        // extraction du suffixe de fichier selon le chemin basé sur l'URL fournie. ex. .js, .doc, ...
+        // extraction du suffixe de fichier selon le chemin basÃ© sur l'URL fournie. ex. .js, .doc, ...
         const ext = path.parse(pathname).ext;
-        // si le fichier est trouvé, définit le content-type et envoie les données
+        // si le fichier est trouvÃ©, dÃ©finit le content-type et envoie les donnÃ©es
         res.setHeader('Content-type', mimeType[ext] || 'text/plain' );
         res.end(data);
       }
     });
   });
 }).listen(parseInt(port));
-console.log(`Le serveur écoute sur le port ${port}`);
+console.log(`Le serveur Ã©coute sur le port ${port}`);
