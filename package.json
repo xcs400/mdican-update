@@ -6,6 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
+  "scripts": {
+  "start": "fileserver.js"
+},
+
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xcs400/mdican-update.git"
@@ -15,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/xcs400/mdican-update/issues"
   },
+ 
   "homepage": "https://github.com/xcs400/mdican-update#readme"
 }
