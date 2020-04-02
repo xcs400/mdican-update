@@ -15,6 +15,7 @@ http.createServer(function (req, res) {
     '.ico': 'image/x-icon',
     '.html': 'text/html',
     '.js': 'text/javascript',
+    '.md': 'text/html',
     '.json': 'application/json',
     '.css': 'text/css',
     '.png': 'image/png',
@@ -36,7 +37,7 @@ http.createServer(function (req, res) {
     }
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
     if (fs.statSync(pathname).isDirectory()) {
-      pathname += '/index.html';
+      pathname += '/README.md';
     }
     // lecture du fichier local
     fs.readFile(pathname, function(err, data){
