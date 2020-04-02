@@ -4,13 +4,9 @@
   "description": "update mdican app",
   "main": "fileserver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "fileserver.js"
   },
   
-  "scripts": {
-  "start": "fileserver.js"
-},
-
   
   "repository": {
     "type": "git",
