@@ -3,7 +3,8 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
-const port = process.argv[2] || 80;
+var port = process.env.YOUR_PORT || process.env.PORT || 80;
+
 http.createServer(function (req, res) {
   console.log(`${req.method} ${req.url}`);
   // découpe l'URL
