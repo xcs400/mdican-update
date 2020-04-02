@@ -53,4 +53,4 @@ http.createServer(function (req, res) {
     });
   });
 }).listen(parseInt(port));
-console.log(`Le serveur écoute sur le port ${port}`);
+console.log(`Le serveur ecoute sur le port ${port}`);
