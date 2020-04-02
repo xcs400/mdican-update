@@ -11,7 +11,11 @@
 			var sPageURL = window.location.search.substring(1);
 		//	var sURLVariables = sPageURL.split('&');
 			
-		 alert("MdiCAN update : " + decodeURI(sPageURL))
+	//	 alert("MdiCAN update : " + decodeURI(sPageURL))
+		var txt=" "+decodeURI(sPageURL)
+		
+		var element = document.getElementById("mes"); 
+		element.innerHTML=txt
 		}
 
 
@@ -23,6 +27,8 @@
 
 <body onload="MsgWelcome();">
 
+<div id="mes"></div>
+ 
 <iframe id="inlineFrameExample"
     title="Inline Frame Example"
     width="1000"
