@@ -38,7 +38,7 @@ http.createServer(function (req, res) {
     }
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
     if (fs.statSync(pathname).isDirectory()) {
-      pathname += '/README.md';
+      pathname += '/index.html';
     }
     // lecture du fichier local
     fs.readFile(pathname, function(err, data){
