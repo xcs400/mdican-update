@@ -4,7 +4,7 @@
   "description": "update mdican app",
   "main": "fileserver.js",
   "scripts": {
-      "start": "fileserver.js"
+      "start": "node fileserver.js"
   },
   
   
