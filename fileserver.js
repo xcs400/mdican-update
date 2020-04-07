@@ -3,9 +3,8 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
-/*
-const { Client } = require('pg');
 
+const { Client } = require('pg');
 
 const client = new Client({
 	
@@ -14,7 +13,7 @@ const client = new Client({
 
 
 });
-*/
+
  //  client.connect();
    
  
