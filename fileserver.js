@@ -30,6 +30,11 @@ express()
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
+	  
+	  client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom2 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+
+	  
+	  
       const result = await client.query('SELECT * FROM logaccess');
       const results = { 'results': (result) ? result.rows : null};
 	  res.send ( results)
