@@ -1,3 +1,4 @@
+/*
 const { Client } = require('pg');
 
 const cool = require('cool-ascii-faces')
@@ -14,6 +15,7 @@ const pool = new Pool({
   rejectUnauthorized: false
 });
 
+*/
 
 
 /*
@@ -80,22 +82,20 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
+  
+const { Pool } = require('pg');
 
-const { Client } = require('pg');
-
-const client = new Client({
-	
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
-
-
+  ssl: true,
+  rejectUnauthorized: false
 });
 
-   client.connect();
+
    
  
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
-var port = process.env.YOUR_PORT || process.env.PORT || 80;
+var port =  process.env.PORT || 80;
 
 http.createServer(function (req, res) {
   console.log(`${req.method} ${req.url}`);
