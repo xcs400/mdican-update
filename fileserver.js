@@ -62,11 +62,10 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
   
   showTimes = () => {
   let result = ''
-  const times = process.env.TIMES || 5
-  for (i = 0; i < times; i++) {
-    result += i + ' '
-  }
-  return result;
+  
+  let date_ob = new Date();
+  
+  return date_ob;
 }
 
 
