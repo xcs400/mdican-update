@@ -9,9 +9,12 @@ const { Client } = require('pg');
 const client = new Client({
 	
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
+  ssl: true
 
+
+});
+   client.connect();
+   
  
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
 var port = process.env.YOUR_PORT || process.env.PORT || 80;
@@ -45,25 +48,26 @@ http.createServer(function (req, res) {
       // si le fichier n'existe pas, renvoie 404
       res.statusCode = 404;
       res.end(`File ${pathname} not found!`);
-	  console.log(process.env.DATABASE_URL)
-	   client.connect();
-	   
-	   
-client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-  
+	//  console.log(process.env.DATABASE_URL)
+   
+client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+  // client.end();
    console.log( " erreur sql");
- 
+   console.log( res);
+   console.log( err); 
+   
+
 });
 
 
+
+	//client.end();
       return;
     }
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
     if (fs.statSync(pathname).isDirectory()) {
       pathname += '/index.html';
 	
-
-
 
     }
     // lecture du fichier local
@@ -83,4 +87,36 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom ","20
 }).listen(parseInt(port));
 console.log(`Le serveur eecoute sur le port ${port}`);
 
+client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+  // client.end();
+   console.log( " erreur sql");
+  
 
+});
+
+
+/*
+
+
+
+drop table logaccess;
+CREATE TABLE logaccess
+(
+    ID  SERIAL PRIMARY KEY,
+    nom VARCHAR(100),
+    dateacces DATE,
+    version VARCHAR(100),
+    ulr VARCHAR(1000),
+    Stamp TIMESTAMP
+
+    
+ );
+ 
+
+
+GRANT ALL privileges on DATABASE da67rapi6q2i9 to mrhklehbbeihyj;
+
+INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ('mon nom ','2020-07-04','2020-07-04'::timestamp);
+INSERT INTO logaccess (nom,dateacces) VALUES ('mon nom1 ','2020-07-02');
+SELECT * FROM logaccess;
+*/
