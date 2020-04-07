@@ -74,16 +74,15 @@ http.createServer(function (req, res) {
       res.end(`File ${pathname} not found!`);
 	  console.log(process.env.DATABASE_URL)
    
-   /*
-client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-  // client.end();
-   console.log( " erreur sql");
-   console.log( res);
-   console.log( err); 
+//client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+//  // client.end();
+//   console.log( " erreur sql");
+ //  console.log( res);
+ //  console.log( err); 
    
 
-});
-*/
+//});
+
 
 
 	//client.end();
@@ -124,7 +123,13 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom1 ","2
 
 });
 
-/*
+
+
+
+
+*/
+
+
 /*
 
 
