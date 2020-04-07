@@ -176,15 +176,8 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
     });
   });
 }).listen(parseInt(port));
-console.log(`Le serveur eecoute sur le port ${port}`);
- console.log(process.env.DATABASE_URL)
-  
-
-  
-
-});
-
-
+console.log(`Le serveur ecoute sur le port ${port}`);
+ 
 
 
 
