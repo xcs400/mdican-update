@@ -38,10 +38,17 @@ express()
 	
 	console.log ( req.query.name)
 	console.log ( req.query.date)
-	
-	 var sql= 'INSERT INTO logaccess (nom ) VALUES ( \'' 
-	 sql =sql+ req.query.name 
-	 sql =sql + '\');'
+	console.log ( req.query.url)
+	console.log ( req.query.version)
+		
+	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,version) VALUES ( ' 
+	 sql =sql+ '\''+  req.query.name  + '\' ,'
+	 sql =sql+ '\''+  req.query.date  + '\' ,'
+	 sql =url+ '\''+  req.query.url   + '\' ,'
+	 sql =url+ '\''+  req.query.version  + '\' '
+	 	 
+	 sql =sql + ');'
+	 
 	 console.log (sql)
 	
 client.query(sql, (err, res) => {
