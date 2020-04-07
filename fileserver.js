@@ -44,8 +44,8 @@ express()
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,version) VALUES ( ' 
 	 sql =sql+ '\''+  req.query.name  + '\' ,'
 	 sql =sql+ '\''+  req.query.date  + '\' ,'
-	 sql =url+ '\''+  req.query.url   + '\' ,'
-	 sql =url+ '\''+  req.query.version  + '\' '
+	 sql =sql+ '\''+  req.query.url   + '\' ,'
+	 sql =sql+ '\''+  req.query.version  + '\' '
 	 	 
 	 sql =sql + ');'
 	 
