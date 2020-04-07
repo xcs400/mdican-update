@@ -35,16 +35,20 @@ express()
     try {
       const client = await pool.connect()
 	
+	
 	console.log ( req.query.name)
 	console.log ( req.query.date)
-/*	
-client.query('INSERT INTO logaccess (nom ) VALUES (' \'+ req.query.name + '\';', (err, res) => {
+	
+	 const sql= 'INSERT INTO logaccess (nom ) VALUES (' \'+ req.query.name + '\';'
+	 console.log (sql)
+	
+client.query(sql, (err, res) => {
 	   console.log( " erreur sql");
 	   console.log( res);
 	   console.log( err); 
 
 	});
-	*/ 
+	
 	  
       const result = await client.query('SELECT * FROM logaccess');
       const results = { 'results': (result) ? result.rows : null};
