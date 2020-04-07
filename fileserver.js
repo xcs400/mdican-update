@@ -16,7 +16,9 @@ const pool = new Pool({
 
 
 
+/*
 console.log ( process.env.DATABASE_URL)
+
 
 
 express()
@@ -67,11 +69,11 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
 }
 
 
+*/
 
 
 
 
-/*
 
 const http = require('http');
 const url = require('url');
@@ -123,21 +125,30 @@ http.createServer(function (req, res) {
     if(!exist) {
       // si le fichier n'existe pas, renvoie 404
       res.statusCode = 404;
-      res.end(`File ${pathname} not found!`);
-	  console.log(process.env.DATABASE_URL)
+ 	  console.log(process.env.DATABASE_URL)
    
-//client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-//  // client.end();
-//   console.log( " erreur sql");
- //  console.log( res);
- //  console.log( err); 
-   
+     const client = await pool.connect()
+	  
+client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\'2020-07-04\',\'2020-07-04\'::timestamp);', (err, res) => {
+	   console.log( " erreur sql");
+	   console.log( res);
+	   console.log( err); 
 
-//});
+	});
+	 
+	 
+      const result = await client.query('SELECT * FROM logaccess');
+      const results = { 'results': (result) ? result.rows : null};
+	  res.end ( results)
+
+	  //  res.end(`File ${pathname} not found!`);
+  
+      client.release();
+    
+	
+		
 
 
-
-	//client.end();
       return;
     }
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
@@ -168,9 +179,6 @@ console.log(`Le serveur eecoute sur le port ${port}`);
  console.log(process.env.DATABASE_URL)
   
 
-client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-  // client.end();
-   console.log( " erreur sql");
   
 
 });
@@ -179,7 +187,7 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom1 ","2
 
 
 
-*/
+
 
 
 /*
