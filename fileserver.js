@@ -34,12 +34,7 @@ express()
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
-	
-	
-	console.log ( req.query.nom)
-	console.log ( req.query.dateacces)
-	console.log ( req.query.url)
-	console.log ( req.query.version)
+
 		
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,version) VALUES ( ' 
 	 sql =sql+ '\''+  req.query.nom  + '\' ,'
