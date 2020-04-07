@@ -19,7 +19,7 @@ const pool = new Pool({
 
 
 
-console.log ( process.env.DATABASE_URL)
+//console.log ( process.env.DATABASE_URL)
 
 
 
@@ -45,11 +45,13 @@ express()
 	 sql =sql + ');'
 	 
 	 console.log (sql)
-	
-client.query(sql, (err, res) => {
-	   console.log( " erreur sql");
-	   console.log( res);
-	   console.log( err); 
+		
+	client.query(sql, (err, res) => {
+		 if (err) {
+		   console.log( " erreur sql");
+		   console.log( res);
+		   console.log( err); 
+		 }
 
 	});
 	
