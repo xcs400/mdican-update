@@ -7,6 +7,7 @@ const { Client } = require('pg');
 
 
 const client = new Client({
+	
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
@@ -44,6 +45,17 @@ http.createServer(function (req, res) {
       // si le fichier n'existe pas, renvoie 404
       res.statusCode = 404;
       res.end(`File ${pathname} not found!`);
+	  console.log(process.env.DATABASE_URL)
+	   client.connect();
+	   
+	   
+client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+  
+   console.log( " erreur sql");
+ 
+});
+
+
       return;
     }
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
@@ -51,17 +63,6 @@ http.createServer(function (req, res) {
       pathname += '/index.html';
 	
 
-
-	
-	  client.connect();
-
-client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
 
 
     }
