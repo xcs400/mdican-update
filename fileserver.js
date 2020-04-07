@@ -36,14 +36,14 @@ express()
       const client = await pool.connect()
 	
 	
-	console.log ( req.query.name)
-	console.log ( req.query.date)
+	console.log ( req.query.nom)
+	console.log ( req.query.dateacces)
 	console.log ( req.query.url)
 	console.log ( req.query.version)
 		
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,version) VALUES ( ' 
-	 sql =sql+ '\''+  req.query.name  + '\' ,'
-	 sql =sql+ '\''+  req.query.date  + '\' ,'
+	 sql =sql+ '\''+  req.query.nom  + '\' ,'
+	 sql =sql+ '\''+  req.query.dateacces  + '\' ,'
 	 sql =sql+ '\''+  req.query.url   + '\' ,'
 	 sql =sql+ '\''+  req.query.version  + '\' '
 	 	 
@@ -203,16 +203,15 @@ console.log(`Le serveur ecoute sur le port ${port}`);
 /*
 
 
-
 drop table logaccess;
 CREATE TABLE logaccess
 (
     ID  SERIAL PRIMARY KEY,
     nom VARCHAR(100),
-    dateacces DATE,
+    dateacces VARCHAR(100),
     version VARCHAR(100),
-    ulr VARCHAR(1000),
-    Stamp TIMESTAMP
+    url VARCHAR(1000),
+    Stamp VARCHAR(100)
 
     
  );
@@ -222,6 +221,5 @@ CREATE TABLE logaccess
 GRANT ALL privileges on DATABASE da67rapi6q2i9 to mrhklehbbeihyj;
 
 INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ('mon nom ','2020-07-04','2020-07-04'::timestamp);
-INSERT INTO logaccess (nom,dateacces) VALUES ('mon nom1 ','2020-07-02');
 SELECT * FROM logaccess;
 */
