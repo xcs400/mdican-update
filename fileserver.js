@@ -2,6 +2,16 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+
+const { Client } = require('pg');
+
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
 var port = process.env.YOUR_PORT || process.env.PORT || 80;
 
@@ -39,6 +49,21 @@ http.createServer(function (req, res) {
     // s'il s'agit d'un répertoire, on tente d'y trouver un fichier index.html
     if (fs.statSync(pathname).isDirectory()) {
       pathname += '/index.html';
+	
+
+
+	
+	  client.connect();
+
+client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+
     }
     // lecture du fichier local
     fs.readFile(pathname, function(err, data){
@@ -56,3 +81,5 @@ http.createServer(function (req, res) {
   });
 }).listen(parseInt(port));
 console.log(`Le serveur eecoute sur le port ${port}`);
+
+
