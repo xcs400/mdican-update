@@ -12,7 +12,7 @@ const client = new Client({
   ssl: true,
 });
 
-
+ 
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
 var port = process.env.YOUR_PORT || process.env.PORT || 80;
 
