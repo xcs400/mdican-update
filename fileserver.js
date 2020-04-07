@@ -49,7 +49,7 @@ http.createServer(function (req, res) {
       // si le fichier n'existe pas, renvoie 404
       res.statusCode = 404;
       res.end(`File ${pathname} not found!`);
-	//  console.log(process.env.DATABASE_URL)
+	  console.log(process.env.DATABASE_URL)
    
 client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
   // client.end();
