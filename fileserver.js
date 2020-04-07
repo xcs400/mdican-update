@@ -3,6 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
+/*
 const { Client } = require('pg');
 
 
@@ -13,7 +14,8 @@ const client = new Client({
 
 
 });
-   client.connect();
+*/
+ //  client.connect();
    
  
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
@@ -87,13 +89,14 @@ client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","
 }).listen(parseInt(port));
 console.log(`Le serveur eecoute sur le port ${port}`);
 
+/*
 client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
   // client.end();
    console.log( " erreur sql");
   
 
 });
-
+*/
 
 /*
 
