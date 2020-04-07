@@ -14,7 +14,7 @@ const client = new Client({
 
 });
 
- //  client.connect();
+   client.connect();
    
  
 // vous pouvez passer le paramètre en ligne de commande. ex. node static_server.js 3000
