@@ -76,7 +76,6 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
 
 
 
-
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
@@ -127,6 +126,7 @@ http.createServer(function (req, res) {
       res.statusCode = 404;
  	  console.log(process.env.DATABASE_URL)
    
+   /*
      const client = await pool.connect()
 	  
 client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\'2020-07-04\',\'2020-07-04\'::timestamp);', (err, res) => {
@@ -141,12 +141,13 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
       const results = { 'results': (result) ? result.rows : null};
 	  res.end ( results)
 
-	  //  res.end(`File ${pathname} not found!`);
-  
+	 
       client.release();
     
+	*/
 	
-		
+	   res.end(`File ${pathname} not found!`);
+  	
 
 
       return;
