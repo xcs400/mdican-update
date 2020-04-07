@@ -201,6 +201,7 @@ console.log(`Le serveur ecoute sur le port ${port}`);
 /*
 
 
+
 drop table logaccess;
 CREATE TABLE logaccess
 (
@@ -208,8 +209,8 @@ CREATE TABLE logaccess
     nom VARCHAR(100),
     dateacces VARCHAR(100),
     version VARCHAR(100),
-    url VARCHAR(1000),
-    Stamp VARCHAR(100)
+    url VARCHAR(1000)
+ 
 
     
  );
@@ -218,6 +219,6 @@ CREATE TABLE logaccess
 
 GRANT ALL privileges on DATABASE da67rapi6q2i9 to mrhklehbbeihyj;
 
-INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ('mon nom ','2020-07-04','2020-07-04'::timestamp);
+INSERT INTO logaccess (nom,dateacces) VALUES ('mon nom ','2020-07-04');
 SELECT * FROM logaccess;
 */
