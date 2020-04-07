@@ -36,7 +36,7 @@ express()
       const client = await pool.connect()
 	    let date_ob = new Date();
  
-client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\'2020-07-04\', \''+ date_ob+ '\' ;', (err, res) => {
+client.query('INSERT INTO logaccess (nom,dateacces ) VALUES (\'mon nom1\',' + date_ob+ ';', (err, res) => {
 	   console.log( " erreur sql");
 	   console.log( res);
 	   console.log( err); 
