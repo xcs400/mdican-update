@@ -39,9 +39,9 @@ express()
 	console.log ( req.query.name)
 	console.log ( req.query.date)
 	
-	 const sql= 'INSERT INTO logaccess (nom ) VALUES ( \'' 
+	 var sql= 'INSERT INTO logaccess (nom ) VALUES ( \'' 
 	 sql =sql+ req.query.name 
-	 sql =sql + '\';'
+	 sql =sql + '\');'
 	 console.log (sql)
 	
 client.query(sql, (err, res) => {
