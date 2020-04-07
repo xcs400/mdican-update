@@ -1,3 +1,6 @@
+
+
+
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
@@ -51,6 +54,7 @@ http.createServer(function (req, res) {
       res.end(`File ${pathname} not found!`);
 	  console.log(process.env.DATABASE_URL)
    
+   /*
 client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
   // client.end();
    console.log( " erreur sql");
@@ -59,7 +63,7 @@ client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","
    
 
 });
-
+*/
 
 
 	//client.end();
@@ -83,32 +87,23 @@ client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","
         res.setHeader('Content-type', mimeType[ext] || 'text/plain' );
         res.end(data);
 		
-		
-		client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom2 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
-  // client.end();
-   console.log( " erreur sql");
-   console.log( res);
-   console.log( err); 
-   
-
-});
-
-
+	
 		
       }
     });
   });
 }).listen(parseInt(port));
 console.log(`Le serveur eecoute sur le port ${port}`);
+ console.log(process.env.DATABASE_URL)
+  
 
-/*
-client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES ("mon nom1 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
   // client.end();
    console.log( " erreur sql");
   
 
 });
-*/
+
 
 /*
 
