@@ -1,4 +1,4 @@
-/*
+
 const { Client } = require('pg');
 
 const cool = require('cool-ascii-faces')
@@ -15,20 +15,19 @@ const pool = new Pool({
   rejectUnauthorized: false
 });
 
-*/
 
 
-/*
+
+
 console.log ( process.env.DATABASE_URL)
 
 
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, '')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('index.html'))
-  .get('/MDICAN.ZIP', (req, res) => res.render('MDICAN.ZIP'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
   
@@ -71,9 +70,11 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
 }
 
 
-*/
 
 
+
+
+/*
 
 
 const http = require('http');
@@ -179,7 +180,7 @@ client.query('INSERT INTO logaccess (nom,dateacces,Stamp) VALUES (\'mon nom1\',\
 console.log(`Le serveur ecoute sur le port ${port}`);
  
 
-
+*/
 
 
 
