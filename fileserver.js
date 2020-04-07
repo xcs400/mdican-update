@@ -82,6 +82,19 @@ client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom1 ","
         // si le fichier est trouvé, définit le content-type et envoie les données
         res.setHeader('Content-type', mimeType[ext] || 'text/plain' );
         res.end(data);
+		
+		
+		client.query('INSERT INTO logaccesms (nom,dateacces,Stamp) VALUES ("mon nom2 ","2020-07-04","2020-07-04"::timestamp);', (err, res) => {
+  // client.end();
+   console.log( " erreur sql");
+   console.log( res);
+   console.log( err); 
+   
+
+});
+
+
+		
       }
     });
   });
