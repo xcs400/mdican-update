@@ -29,7 +29,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('index.html'))
   .get('/cool', (req, res) => res.send(cool()))
-  .get('/version', (req, res) => res.sendfile('version.html' )
+  .get('/version', (req, res) => res.sendfile('version.html' ))
   .get('/times', (req, res) => res.send(showTimes()))
   
   .get('/db', async (req, res) => {
