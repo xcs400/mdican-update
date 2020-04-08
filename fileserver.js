@@ -75,7 +75,7 @@ express()
 
 	});
 	
-	   res.render('index.html')
+	   res.sendFile('./index.html',  { root: __dirname })
 	   
    //   res.render('pages/db', results );
       client.release();
