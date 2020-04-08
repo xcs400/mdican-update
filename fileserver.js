@@ -54,7 +54,10 @@ express()
       const client = await pool.connect()
 
  let date_ob = new Date();
-		  
+	if (req.query.message!= "undefined")
+		message= req.query.message
+	else
+		message = ""
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,Recorddate,version) VALUES ( ' 
 	 sql =sql+ '\''+  req.query.nom  + '\' ,'
 	 sql =sql+ '\''+  req.query.dateacces  + '\' ,'
@@ -75,7 +78,7 @@ express()
 
 	});
 	
-	   res.sendFile('./index.html',  { root: __dirname })
+	   res.sendFile('./version.html&'+message,  { root: __dirname })
 	   
    //   res.render('pages/db', results );
       client.release();
