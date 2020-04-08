@@ -75,8 +75,8 @@ express()
 
 	});
 	
-	   res.send("req " + sql);
-
+	   res.render('index.html')
+	   
    //   res.render('pages/db', results );
       client.release();
     } catch (err) {
