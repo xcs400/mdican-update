@@ -53,6 +53,7 @@ express()
     try {
       const client = await pool.connect()
 
+	  
  let date_ob = new Date();
 
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,Recorddate,version) VALUES ( ' 
@@ -75,7 +76,10 @@ express()
 
 	});
 	
-	   res.sendFile('./version.html',  { root: __dirname })
+		if (req.query.deploy="yes")
+			res.send("<h1> The update is being deployed, the application should start automatically</h1>" )
+		else
+		   res.sendFile('./version.html',  { root: __dirname })
 	   
    //   res.render('pages/db', results );
       client.release();
