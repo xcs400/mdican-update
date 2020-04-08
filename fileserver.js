@@ -55,9 +55,9 @@ express()
 
  let date_ob = new Date();
 	if (req.query.message!= "undefined")
-		message= req.query.message
+		messagestr= req.query.message
 	else
-		message = ""
+		messagestr = ""
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,Recorddate,version) VALUES ( ' 
 	 sql =sql+ '\''+  req.query.nom  + '\' ,'
 	 sql =sql+ '\''+  req.query.dateacces  + '\' ,'
@@ -78,9 +78,8 @@ express()
 
 	});
 	
-	   res.send(message)
 	
-	   res.sendFile('./version.html',  { root: __dirname })
+	   res.sendFile('./version.html',  { message: messagestr })
 	   
    //   res.render('pages/db', results );
       client.release();
