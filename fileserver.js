@@ -76,7 +76,7 @@ express()
 
 	});
 	
-		if (req.query.deploy="yes")
+		if (req.query.deploy=="yes")
 			res.send("<h1> The update is being deployed, the application should start automatically</h1>" )
 		else
 		   res.sendFile('./version.html',  { root: __dirname })
