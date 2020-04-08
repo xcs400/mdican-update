@@ -78,7 +78,9 @@ express()
 
 	});
 	
-	   res.sendFile('./version.html&'+message,  { root: __dirname })
+	   res.send(message)
+	
+	   res.sendFile('./version.html',  { root: __dirname })
 	   
    //   res.render('pages/db', results );
       client.release();
