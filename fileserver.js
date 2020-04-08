@@ -79,7 +79,7 @@ express()
 	});
 	
 	
-	   res.render('./version.html',  { message: messagestr })
+	   res.render('version.html',  { message: messagestr })
 	   
    //   res.render('pages/db', results );
       client.release();
