@@ -23,10 +23,7 @@ const pool = new Pool({
 
 
 
-var app = express()
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-
+express()
   .use(express.static(path.join(__dirname, '')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
@@ -57,10 +54,7 @@ app.set('view engine', 'html');
       const client = await pool.connect()
 
  let date_ob = new Date();
-	if (req.query.message!= "undefined")
-		messagestr= req.query.message
-	else
-		messagestr = ""
+
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,Recorddate,version) VALUES ( ' 
 	 sql =sql+ '\''+  req.query.nom  + '\' ,'
 	 sql =sql+ '\''+  req.query.dateacces  + '\' ,'
@@ -81,8 +75,7 @@ app.set('view engine', 'html');
 
 	});
 	
-	
-	   res.render(__dirname +'version.html',  { message: messagestr })
+	   res.sendFile('./version.html',  { root: __dirname })
 	   
    //   res.render('pages/db', results );
       client.release();
