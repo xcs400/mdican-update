@@ -115,6 +115,7 @@ express()
 
 
 
+
 drop table logaccess;
 CREATE TABLE logaccess
 (
@@ -122,13 +123,12 @@ CREATE TABLE logaccess
     nom VARCHAR(100),
     dateacces VARCHAR(100),
     version VARCHAR(100),
-    url VARCHAR(1000)
- 
+    url VARCHAR(1000),
+    Recorddate  VARCHAR(100)
 
     
  );
  
-
 
 GRANT ALL privileges on DATABASE da67rapi6q2i9 to mrhklehbbeihyj;
 
