@@ -23,7 +23,10 @@ const pool = new Pool({
 
 
 
-express()
+var app = express()
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
   .use(express.static(path.join(__dirname, '')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
