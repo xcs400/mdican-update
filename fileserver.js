@@ -48,6 +48,19 @@ express()
   })
 
   
+    .get('/cre', async (req, res) => {
+    try {
+  
+	  res.send ( process.env.DATABASE_URL )
+  
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+  
 
    .get('/log', async (req, res) => {
     try {
