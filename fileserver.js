@@ -49,9 +49,9 @@ express()
 
   
     .get('/cre', async (req, res) => {
-      console.error(PORT);
-      console.error( process.env.DATABASE_URL );
-       res.send ( PORT)
+      console.log(`Listening on ${ PORT }`);
+      console.log( process.env.DATABASE_URL );
+       res.send ( `Listening on ${ PORT }` )
     }
   })
 
