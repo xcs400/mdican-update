@@ -64,7 +64,7 @@ express()
     try {
       const client = await pool.connect()
 
- 	  
+	  
  let date_ob = new Date();
 
 	 var sql= 'INSERT INTO logaccess (nom ,dateacces,url,Recorddate,version) VALUES ( ' 
