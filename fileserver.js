@@ -19,7 +19,7 @@ const pool = new Pool({
 
 
 
-//console.log ( process.env.DATABASE_URL)
+console.log ( process.env.DATABASE_URL)
 
 
 
