@@ -4,17 +4,33 @@ const { Client } = require('pg');
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT 
 
 
   
 const { Pool } = require('pg');
+const { parse } = require('pg-connection-string')
+
+
+const config = parse(process.env.DATABASE_URL)
+
+config.ssl = {
+  rejectUnauthorized: false
+}
+const pool = new Pool(config)
+
+/*
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+  rejectUnauthorized: false
+});
+
+*/
 
 
 
-
-
-//console.log ( process.env.DATABASE_URL)
+console.log ( process.env.DATABASE_URL)
 
 
 
@@ -28,18 +44,9 @@ express()
   
   .get('/db', async (req, res) => {
     try {
-        
-        const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-  rejectUnauthorized: false
-});
-
-
-
-
       const client = await pool.connect()
 
+ 	  
       const result = await client.query('SELECT * FROM logaccess');
       const results = { 'results': (result) ? result.rows : null};
 	  res.send ( results)
