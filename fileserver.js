@@ -35,9 +35,10 @@ express()
     try {
       const client = await pool.connect()
 
- 	  
-      const result = await client.query('SELECT * FROM logaccess');
-      const results = { 'results': (result) ? result.rows : null};
+ 	  results= client
+      
+      //const result = await client.query('SELECT * FROM logaccess');
+      //const results = { 'results': (result) ? result.rows : null};
 	  res.send ( results)
    //   res.render('pages/db', results );
       client.release();
