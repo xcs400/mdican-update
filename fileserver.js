@@ -9,11 +9,6 @@ const PORT = process.env.PORT || 5000
 
   
 const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-  rejectUnauthorized: false
-});
 
 
 
@@ -33,12 +28,20 @@ express()
   
   .get('/db', async (req, res) => {
     try {
+        
+        const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+  rejectUnauthorized: false
+});
+
+
+
+
       const client = await pool.connect()
 
- 	  results= client
-      
-      //const result = await client.query('SELECT * FROM logaccess');
-      //const results = { 'results': (result) ? result.rows : null};
+      const result = await client.query('SELECT * FROM logaccess');
+      const results = { 'results': (result) ? result.rows : null};
 	  res.send ( results)
    //   res.render('pages/db', results );
       client.release();
