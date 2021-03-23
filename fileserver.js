@@ -4,7 +4,7 @@ const { Client } = require('pg');
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT 
 
 
   
@@ -49,14 +49,9 @@ express()
 
   
     .get('/cre', async (req, res) => {
-    try {
-  
-	  res.send ( process.env.DATABASE_URL )
-  
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
+      console.error(PORT);
+      console.error( process.env.DATABASE_URL );
+       res.send ( PORT)
     }
   })
 
