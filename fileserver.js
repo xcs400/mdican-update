@@ -48,18 +48,11 @@ express()
   })
 
   
-    .get('/cre', async (req, res) => {
-      console.log(`Listening on ${ PORT }`);
-      console.log( process.env.DATABASE_URL );
-       res.send ( `Listening on ${ PORT }` )
-    }
-  )
-
-  
+ 
 
    .get('/log', async (req, res) => {
     try {
-      const client = await pool.connect()
+  /*    const client = await pool.connect()
 
 	  
  let date_ob = new Date();
@@ -83,14 +76,14 @@ express()
 		 }
 
 	});
-	
+	*/
 		if (req.query.deploy=="yes")
 			res.send("<h1> The update is being deployed, the application should start automatically</h1>" )
 		else
 		   res.sendFile('./version.html',  { root: __dirname })
 	   
    //   res.render('pages/db', results );
-      client.release();
+  //    client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
