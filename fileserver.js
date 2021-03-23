@@ -53,7 +53,7 @@ express()
       console.log( process.env.DATABASE_URL );
        res.send ( `Listening on ${ PORT }` )
     }
-  })
+  )
 
   
 
